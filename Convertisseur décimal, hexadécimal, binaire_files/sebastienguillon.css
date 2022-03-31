@@ -1,0 +1,72 @@
+@charset "utf-8";
+@import "elements.css";
+
+
+/*======================================================================
+
+                       Feuille de styles universelle
+
+======================================================================*/
+
+
+* {
+	padding:0;
+	margin:0;
+}
+
+html, body {
+	color:#000;
+	background-color:#fff;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	max-width:70em;
+	margin:0 auto;
+	padding:2em;
+}
+
+html {
+	background-color:#f8fbec;
+	color:#000;
+}
+
+body {
+	border:1px solid #a8c70b;
+	background-image:url(/images/sg-watermark.png);
+	background-repeat:no-repeat;
+	background-position:bottom right;
+	line-height:1.4;
+	font-family:helvetica, "Bitstream Vera Sans", arial, sans-serif;
+}
+
+
+/*====================================================================
+                                                                Titres
+*/
+h1, h2, h3, h4, h5, h6 {
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#446300;
+	background-color:inherit;
+	font-weight:bold;
+	padding-bottom:.2em;
+	text-transform:none;
+}
+
+h1 {
+	font-size:1.7em;
+	letter-spacing:.1em;
+	padding-right:.3em;
+	padding-bottom:.3em;
+	padding-left:.2em;
+	border-bottom:medium solid #a8c70b;
+	margin-top:1em;
+	margin-bottom:1em;
+}
+
+h2 {
+	border-bottom:thin solid #a8c70b;
+	padding-left:.2em;
+}
+
+h3 {
+	border-bottom:thin dotted #a8c70b;
+	padding-left:.2em;
+}

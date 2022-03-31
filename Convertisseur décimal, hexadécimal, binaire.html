@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0063)https://sebastienguillon.com/test/javascript/convertisseur.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Convertisseur décimal, hexadécimal, binaire</title>
+<link rel="stylesheet" type="text/css" href="./Convertisseur décimal, hexadécimal, binaire_files/sebastienguillon.css" media="screen">
+<script async="" src="./Convertisseur décimal, hexadécimal, binaire_files/analytics.js.téléchargement"></script><script type="text/javascript">
+(function () {
+
+  'use strict';
+
+  var SgConverter = function () {
+    var that = this;
+
+    this.converters = ['decimal', 'hexadecimal', 'binary'];
+    this.inputElements = {};
+
+    this.decimalToHexadecimal = function (decimalValue) {
+      return parseInt(decimalValue, 10).toString(16);
+    };
+
+    this.decimalToBinary = function (decimalValue) {
+      return parseInt(decimalValue, 10).toString(2);
+    };
+
+    this.hexadecimalToDecimal = function (hexadecimalValue) {
+      return parseInt(hexadecimalValue, 16);
+    };
+
+    this.hexadecimalToBinary = function (hexadecimalValue) {
+      return (parseInt(hexadecimalValue, 16)).toString(2);
+    };
+
+    this.binaryToDecimal = function (binaryValue) {
+      return parseInt(binaryValue, 2);
+    };
+
+    this.binaryToHexadecimal = function (binaryValue) {
+      return (parseInt(binaryValue, 2)).toString(16);
+    };
+
+    this.convert = function (sourceType) {
+      var sourceValue = this.inputElements[sourceType].value;
+      this.converters.forEach(function (converter) {
+        if (converter !== sourceType) {
+          var ucConverter = converter.charAt(0).toUpperCase() + converter.slice(1);
+          var converterMethod = sourceType + 'To' + ucConverter;
+          that.inputElements[converter].value = that[converterMethod](sourceValue);
+        }
+      });
+    }; // convert
+
+    this.update = function (event) {
+      that.convert(event.target.id);
+    };
+  }; // onEnterKey
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('decimal').focus();
+    var sgConverter = new SgConverter();
+    sgConverter.converters.forEach(function (converter) {
+      sgConverter.inputElements[converter] = document.getElementById(converter);
+      document.getElementById(converter).nextElementSibling.addEventListener('click', function () {
+        sgConverter.convert(converter);
+      }, false );
+
+      ['keyup', 'change'].forEach(function (event) {
+        document.getElementById(converter).addEventListener(event, sgConverter.update, false);
+      });
+
+    });
+  }); // DOMContentLoaded
+
+}()); // IIFE
+</script>
+<style type="text/css">
+input[type='text'], input[type='number'] {
+	text-transform:uppercase;
+  display: inline-block;
+  min-width: 40%;
+}
+label {
+	display: inline-block;
+	min-width: 15%;
+	text-align: right;
+}
+</style>
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-1278376-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<script data-ad-client="ca-pub-1558326370241405" async="" src="./Convertisseur décimal, hexadécimal, binaire_files/f.txt"></script>
+</head>
+
+<body>
+<h1>Convertisseur décimal, hexadécimal, binaire</h1>
+
+<form action="https://sebastienguillon.com/test/javascript/convertisseur.html">
+	<fieldset>
+		<legend>Convertir</legend>
+		<p>
+			<label for="decimal">Décimal</label>
+			<input type="number" id="decimal" name="decimal">
+			<input type="button" value="↔️">
+		</p>
+
+		<p>
+			<label for="hexadecimal">Hexadécimal</label>
+			<input type="text" id="hexadecimal" name="hexadecimal">
+			<input type="button" value="↔️">
+		</p>
+
+		<p>
+			<label for="binary">Binaire</label>
+			<input type="text" id="binary" name="binary">
+			<input type="button" value="↔️">
+		</p>
+	</fieldset>
+
+</form>
+
+<h2>Note</h2>
+<p>
+	Le code JavaScript de ce convertisseur a été mis à jour le 11/12/2016. La <a href="https://sebastienguillon.com/test/javascript/convertisseur.orig.html">version originale</a> (compatible avec Internet Explorer 5) est toujours disponible.
+</p>
+
+<hr>
+
+<p>copyright © 2005‑2021 Sébastien Guillon – <a href="http://validator.w3.org/check/referer" title="Valider cette page">HTML</a> – <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
+
+
+
+</body></html>
